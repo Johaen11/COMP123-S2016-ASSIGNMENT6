@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BMITableLabel = new System.Windows.Forms.Label();
             this.ImperialUnitsRadioButton = new System.Windows.Forms.RadioButton();
@@ -41,6 +42,9 @@
             this.ResultsTextBox = new System.Windows.Forms.TextBox();
             this.HeightUnitLabel = new System.Windows.Forms.Label();
             this.WeightUnitLabel = new System.Windows.Forms.Label();
+            this.ResetButton = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.BMICalculatorTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +74,7 @@
             this.BMITableLabel.Size = new System.Drawing.Size(82, 17);
             this.BMITableLabel.TabIndex = 0;
             this.BMITableLabel.Text = "BMI Scale";
+            this.BMITableLabel.Click += new System.EventHandler(this.BMITableLabel_Click);
             // 
             // ImperialUnitsRadioButton
             // 
@@ -114,10 +119,11 @@
             // HeightTextBox
             // 
             this.HeightTextBox.Location = new System.Drawing.Point(159, 173);
-            this.HeightTextBox.MaxLength = 3;
+            this.HeightTextBox.MaxLength = 4;
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(56, 38);
             this.HeightTextBox.TabIndex = 5;
+            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // HeightLabel
             // 
@@ -150,16 +156,17 @@
             // 
             // ResultsTextBox
             // 
-            this.ResultsTextBox.Location = new System.Drawing.Point(159, 368);
+            this.ResultsTextBox.Location = new System.Drawing.Point(136, 350);
             this.ResultsTextBox.Multiline = true;
             this.ResultsTextBox.Name = "ResultsTextBox";
-            this.ResultsTextBox.Size = new System.Drawing.Size(100, 45);
+            this.ResultsTextBox.Size = new System.Drawing.Size(171, 58);
             this.ResultsTextBox.TabIndex = 9;
             this.ResultsTextBox.TextChanged += new System.EventHandler(this.ResultsTextBox_TextChanged);
             // 
             // HeightUnitLabel
             // 
             this.HeightUnitLabel.AutoSize = true;
+            this.HeightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.HeightUnitLabel.Location = new System.Drawing.Point(221, 176);
             this.HeightUnitLabel.Name = "HeightUnitLabel";
             this.HeightUnitLabel.Size = new System.Drawing.Size(208, 31);
@@ -175,11 +182,37 @@
             this.WeightUnitLabel.TabIndex = 11;
             this.WeightUnitLabel.Text = "label2";
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(12, 368);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(106, 40);
+            this.ResetButton.TabIndex = 12;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBar1.Location = new System.Drawing.Point(136, 414);
+            this.progressBar1.Maximum = 30;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(164, 23);
+            this.progressBar1.TabIndex = 13;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
+            // BMICalculatorTimer
+            // 
+            this.BMICalculatorTimer.Enabled = true;
+            // 
             // BMICalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 441);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.WeightUnitLabel);
             this.Controls.Add(this.HeightUnitLabel);
             this.Controls.Add(this.ResultsTextBox);
@@ -218,10 +251,13 @@
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.TextBox BMITextBox;
         private System.Windows.Forms.Button BMIButton;
-        private System.Windows.Forms.Label BMITableLabel;
         private System.Windows.Forms.TextBox ResultsTextBox;
         private System.Windows.Forms.Label HeightUnitLabel;
         private System.Windows.Forms.Label WeightUnitLabel;
+        private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label BMITableLabel;
+        private System.Windows.Forms.Timer BMICalculatorTimer;
     }
 }
 

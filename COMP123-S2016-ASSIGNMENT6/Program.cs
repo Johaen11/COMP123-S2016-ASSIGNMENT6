@@ -5,9 +5,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COMP123_S2016_ASSIGNMENT6
-{
+{/**
+        * @static
+        * @method Main
+        * @returns {void}
+        */
     static class Program
     {
+        // #1
+        public static Form1 splashScreen;
+        public static BMICalculator bmiCalculator;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +23,16 @@ namespace COMP123_S2016_ASSIGNMENT6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculator());
+
+            //#2
+            splashScreen =  new Form1();
+
+            //#3
+            bmiCalculator = new BMICalculator();
+           
+            //Application.Run(new Form1());
+            //Application.Run(bmiCalculator);
+            Application.Run( splashScreen);
         }
     }
 }
